@@ -87,7 +87,7 @@ So, edit the upsd.users file and add a new user with privileges to enable/disabl
     [<upsd_username>]
         password = <upsd_pwd>
         actions = SET
-        instcmds = beeper.enable beeper.disable ups.beeper.status
+        instcmds = beeper.toggle ups.beeper.status
 ```
 
 ### 4. Restart the upsd service
@@ -106,7 +106,7 @@ Move this file and `ups_beeper_control.sh` to the right place, e.g.:
 ```shell
 sudo mv ups_beeper_control.sh upscmd.py /root/
 ```
-**Note**: `ups_beeper_control.sh` is used to call the `upscmd.py` script with "beeper.toggle", you could just execute `sudo python2 /root/upscmd.py beeper.toggle`.
+**Note**: `ups_beeper_control.sh` is used to call the `upscmd.py` script with "beeper.toggle", you could just execute `sudo python3 /root/upscmd.py beeper.toggle`.
 
 ### 6. Make the scripts executable
 ```shell
