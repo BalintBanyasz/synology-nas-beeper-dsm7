@@ -87,7 +87,7 @@ So, edit the upsd.users file and add a new user with privileges to enable/disabl
     [<upsd_username>]
         password = <upsd_pwd>
         actions = SET
-        instcmds = beeper.toggle ups.beeper.status
+        instcmds = beeper.enable beeper.disable beeper.toggle ups.beeper.status
 ```
 
 ### 4. Restart the upsd service
