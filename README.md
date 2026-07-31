@@ -106,7 +106,7 @@ Move this file and `ups_beeper_control.sh` to the right place, e.g.:
 ```shell
 sudo mv ups_beeper_control.sh upscmd.py /opt/
 ```
-**Note**: `ups_beeper_control.sh` is used to call the `upscmd.py` script with "beeper.toggle", you could just execute `sudo python3 /root/upscmd.py beeper.toggle`.
+**Note**: `ups_beeper_control.sh` is used to call the `upscmd.py` script with "beeper.toggle", you could just execute `sudo python3 /opt/upscmd.py beeper.toggle`.
 
 ### 6. Make the scripts executable
 ```shell
