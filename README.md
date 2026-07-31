@@ -104,19 +104,19 @@ vim upscmd.py
 ```
 Move this file and `ups_beeper_control.sh` to the right place, e.g.:
 ```shell
-sudo mv ups_beeper_control.sh upscmd.py /root/
+sudo mv ups_beeper_control.sh upscmd.py /opt/
 ```
 **Note**: `ups_beeper_control.sh` is used to call the `upscmd.py` script with "beeper.toggle", you could just execute `sudo python3 /root/upscmd.py beeper.toggle`.
 
 ### 6. Make the scripts executable
 ```shell
-sudo chmod u+x /root/ups_beeper_control.sh
-sudo chmod u+x /root/upscmd.py
+sudo chmod u+x /opt/ups_beeper_control.sh
+sudo chmod u+x /opt/upscmd.py
 ```
 
 At this point you can test the scripts:
 ```shell
-user@nas:/$ sudo /root/ups_beeper_control.sh disable
+user@nas:/$ sudo /opt/ups_beeper_control.sh disable
 Password:
 disable beeper...
 USERNAME cmd status: OK
@@ -125,10 +125,10 @@ INSTCMD cmd status: OK
 
 OK Goodbye
 
-Waiting 5 seconds for UPS to update state...
+Waiting 10 seconds for UPS to update state...
 Beeper disabled.
 
-user@nas:/$ sudo /root/ups_beeper_control.sh curtime
+user@nas:/$ sudo /opt/ups_beeper_control.sh curtime
 Using current time to set UPS beeper status
 enable beeper...
 USERNAME cmd status: OK
@@ -146,11 +146,11 @@ Go to the DSM Web interface (Control panel -> Task scheduler) and add the 3 task
 1. Scheduled task to enable beeper (daily)
     - user: root
     - shedule: daily at 9am
-    - command: `bash /root/ups_beeper_control.sh enable`
+    - command: `bash /opt/ups_beeper_control.sh enable`
     - send email when the script terminates abnormally
 2. Triggered task to disable beeper on boot (similar to above)
     - user: root
-    - command: `bash /root/ups_beeper_control.sh disable`
+    - command: `bash /opt/ups_beeper_control.sh disable`
 3. Triggered task to enable / disable on boot based on the current time
-    - command: `bash /root/ups_beeper_control.sh curtime`
+    - command: `bash /opt/ups_beeper_control.sh curtime`
 4. Etcetera...
